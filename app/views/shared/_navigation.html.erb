@@ -12,7 +12,7 @@
       </ul>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <% if user_signed_in? %>
-          <%= link_to "Edit User", edit_user_registration_path, class:"nav-item nav-link" %>
+          <%= link_to Current.user.username, edit_user_registration_path, class:"nav-item nav-link" %>
           <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger btn-sm", form: { data: { turbo_confirm: "Are you sure?" } }%>
         <% end %>
       </ul>
