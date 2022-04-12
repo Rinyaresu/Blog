@@ -1,6 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-
+@import 'actiontext.css';
 
 html {
   background-color: #212529;
@@ -8,4 +8,13 @@ html {
 
 body {
   color: #fff; 
-}@import 'actiontext.css';
+}
+
+.navbar-nav {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  align-items: center;
+}
+
