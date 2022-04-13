@@ -9,12 +9,3 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-    allowed_updates:
-     # Security updates
-     - match: { update_type: security }
- - package_manager: javascript
-    directory: /
-    update_schedule: daily
-    allowed_updates:
-    # Security updates
-    - match: { update_type: security }
