@@ -1,3 +1,40 @@
-<h1>Main#index</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<div>
+  <div class="">
+    <h1 class="display-2">Recent</h1>
+    <p class="text-white bg-dark mb-4 h6" style="--bs-text-opacity: .6;">My lasted articles </p>
+    <hr class="dropdown-divider">
+  </div>
+  <div>
+    <ul style="list-style-type:none;padding-left: 0px;">
+      <% @articles.each do |article| %>
+        <li class="pt-4">
+          <article>
+            <div  class="articles-container">
+              <div class="row">
+                <div class= "col">
+                  <p class="text-white bg-dark" style="--bs-text-opacity: .6;">
+                    <%= article.created_at.strftime("#{article.created_at.day.ordinalize} %B %Y") %>
+                  </p>
+                </div>
+                <div class="col">
+                  <p class="h4">
+                    <%= article.title %>
+                  </p>
+                  <div class="mt-2">
+                    <p class="text-white bg-dark" style="--bs-text-opacity: .6;">
+                      <%= truncate(strip_tags(article.rich_text_content.to_s), length: 95) %>
+                    </p>
+                  </div>
+                  <div class="mt-3 mb-5">
+                    <%= link_to "See more", article%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <hr class="dropdown-divider">
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
