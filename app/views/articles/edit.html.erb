@@ -1,10 +1,12 @@
 <h1>Editing article</h1>
-
 <%= render "form", article: @article %>
-
 <br>
-
-<div>
-  <%= link_to "Show this article", @article %> |
-  <%= link_to "Back to articles", articles_path %>
+<div class="row">
+  <div class="col">
+    <%= link_to "Show this article", @article, class:"btn btn-outline-primary" %>
+  </div>
+  <div class="col">
+    <%= link_to "Back to articles", root_path, class:"btn btn-outline-warning" %>
+  </div>
 </div>
+<hr class="dropdown-divider mb-4 mt-4">
