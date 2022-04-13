@@ -1,10 +1,35 @@
-<p style="color: green"><%= notice %></p>
-<%= render @article %>
+<main>
+  <div>
+    <article>
+      <div>
+        <header>
+          <div class="mt-2 text-center">
+            <div>
+              <p class="text-white bg-dark mb-0" style="--bs-text-opacity: .6;">
+                <%= @article.created_at.strftime("#{@article.created_at.day.ordinalize} %B %Y") %>
+              </p>
+            </div>
+            <div class="title">
+              <p class="h1" style="margin-bottom: 20px;">
+                <%= @article.title %>
+              </p>
+            </div>
+            <hr class="dropdown-divider">
+          </div>
+        </header>
+      </div>
+      <div class="mt-4 mb-4">
+        <%= @article.content%>
+      </div>
+    </article>
+  </div>
+</main>
+
 <div class="container">
   <% if user_signed_in?%>
     <div class="row">
       <div class="col">
-        <%= link_to "Back to articles", articles_path, class:"btn btn-outline-info" %>
+        <%= link_to "Back to articles", root_path, class:"btn btn-outline-info" %>
       </div>
       <div class="col">
         <%= link_to "Edit this article", edit_article_path(@article), class:"btn btn-outline-success" %>
@@ -15,3 +40,4 @@
     </div>
   <% end %>
 </div>
+<hr class="dropdown-divider mb-4">
