@@ -26,7 +26,17 @@ body {
   max-width: 960px;
 }
 
-a{
+a {
   color: #0d6efd;
+  text-decoration: none;
+}
+
+input{
+  background-color: #212529;
+  color: white;
+}
+
+.icon {
+  color: #fff;
   text-decoration: none;
 }
