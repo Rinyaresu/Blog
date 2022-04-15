@@ -1,30 +1,7 @@
-<main>
-  <div>
-    <article>
-      <div>
-        <header>
-          <div class="mt-2 text-center">
-            <div>
-              <p class="text-white bg-dark mb-0" style="--bs-text-opacity: .6;">
-                <%= @article.created_at.strftime("#{@article.created_at.day.ordinalize} %B %Y") %>
-              </p>
-            </div>
-            <div class="title">
-              <p class="h1" style="margin-bottom: 20px;">
-                <%= @article.title %>
-              </p>
-            </div>
-            <hr class="dropdown-divider">
-          </div>
-        </header>
-      </div>
-      <div class="mt-4 mb-4">
-        <%= @article.content%>
-      </div>
-    </article>
-  </div>
-</main>
-
+<%= turbo_stream_from @article %>
+<div id="<%= dom_id(@article) %>">
+  <%= render @article %>
+</div>
 <div class="container">
   <% if user_signed_in?%>
     <div class="row">

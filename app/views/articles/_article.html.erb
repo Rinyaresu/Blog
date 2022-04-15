@@ -1,12 +1,24 @@
-<div id="<%= dom_id article %>">
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= article.content %>
-  </p>
-
-</div>
+<main>
+  <article>
+    <div>
+      <header>
+        <div class="mt-2 text-center">
+          <div>
+            <p class="text-white bg-dark mb-0" style="--bs-text-opacity: .6;">
+              <%= article.created_at.strftime("#{article.created_at.day.ordinalize} %B %Y") %>
+            </p>
+          </div>
+          <div class="title">
+            <p class="h1" style="margin-bottom: 20px;">
+              <%= article.title %>
+            </p>
+          </div>
+          <hr class="dropdown-divider">
+        </div>
+      </header>
+    </div>
+    <div class="mt-4 mb-4">
+      <%= article.content%>
+    </div>
+  </article>
+</main>
