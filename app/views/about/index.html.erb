@@ -1,0 +1,32 @@
+<main class= "mt-auto" >
+  <div>
+    <h1 class="display-3 fw-bold mb-4">About</h1>
+    <hr class="dropdown-divider light">
+  </div>
+  <div>
+    <div class="row">
+      <div class="col mt-4">
+        <div>
+          <img class="rounded-circle" src="https://i.pinimg.com/originals/8b/5f/04/8b5f04525a528637c52dc12298e9e8e3.png">
+        </div>
+        <h3 class="px-5 pt-2">Kaique</h3>
+        <div class="about text-white bg-dark"  style="--bs-text-opacity: .6;"" >Software engineer</div>
+      </div>
+      <div class="about-text col-9 mt-4 pt-4">
+        <p class="lead">
+          I am a programmer from Brazil, currently studying systems analysis and development at IBMR
+          and I am looking for an internship opportunity.
+        </p>
+        <p class="lead">I am a member of the <strong>He4rt Developers.</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="icons mt-2">
+    <a class="icon mx-1" href="https://github.com/rinyaresu"><i class="fab fa-github"></i></a>
+    <a class="icon mx-1" href="https://twitter.com/rinyaresu"><i class="fab fa-twitter"></i></a>
+    <a class="icon mx-1" href="https://www.linkedin.com/in/kaique-linhares-25a840208/"><i class="fab fa-linkedin"></i></a>
+    <%= mail_to "kaiquelinhares07@gmail.com", class:'icon mx-1' do %>
+      <i class="fa-solid fa-envelope"></i>
+    <% end %>
+  </div>
+</main>

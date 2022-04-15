@@ -8,6 +8,7 @@ html {
 
 body {
   color: #fff; 
+  -webkit-font-smoothing: antialiased;
 }
 
 .navbar-nav {
@@ -16,10 +17,6 @@ body {
   margin-bottom: 0;
   list-style: none;
   align-items: center;
-}
-
-.display-2 {
-  font-weight: 500; 
 }
 
 .container-lg, .container-md, .container-sm, .container {
@@ -39,4 +36,29 @@ input{
 .icon {
   color: #fff;
   text-decoration: none;
+}
+
+.rounded-circle {
+  height: 192px;
+  width: 192px;
+}
+
+.about {
+  padding-right: 1.5rem !important;
+  padding-left: 2.0rem !important;
+}
+
+.icons {
+    margin-right: 1.5rem !important;
+    margin-left: 2.5rem !important;
+    margin-bottom: 370px;
+}
+
+.about-text {
+  padding-top: 2.0rem !important;
+}
+
+.fab fa-github, .fab fa-linkedin, .fab fa-twitter {
+  height: 50px;
+  width: 50px ;
 }
