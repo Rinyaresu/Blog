@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
-  resources :articles, except: [:index]
-  devise_for :users
-  resources :about, only: [:index]
-  get 'main/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
+    get "/sign_up" => "devise/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
+  end
 
-  # Defines the root path route ("/")
-  root 'main#index'
+  resources :articles, except: [:index]
+
+  devise_for :users, skip: [:registrations]
+  as :user do
+      get "users/edit" => "devise/registrations#edit", :as => "edit_user_registration"
+      put "users" => "devise/registrations#update", :as => "user_registration"
+    end
+
+  resources :about, only: [:index]
+
+  get "main/index"
+
+  root "main#index"
 end
