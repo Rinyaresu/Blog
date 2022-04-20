@@ -89,3 +89,6 @@ gem "devise", "~> 4.8"
 
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem "friendly_id", "~> 5.4.0"
+
+# New Relic is a performance management system, developed by New Relic, Inc (http://www.newrelic.com). New Relic provides you with deep information about the performance of your web application as it runs in production.
+gem 'newrelic_rpm'
