@@ -84,4 +84,8 @@ group :test do
   gem "rspec-rails"
 end
 
+# Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.8"
+
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
+gem "friendly_id", "~> 5.4.0"
