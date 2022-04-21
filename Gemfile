@@ -81,8 +81,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "rspec"
-  gem "rspec-rails"
+  gem 'minitest'
 end
 
 # Flexible authentication solution for Rails with Warden
