@@ -73,6 +73,7 @@ group :development do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "tty-spinner"
+  gem 'solargraph'
 end
 
 group :test do
