@@ -58,7 +58,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should not get new" do
     get new_article_url
-    get edit_article_url(@article)
     assert_redirected_to "/users/sign_in"
   end
 
