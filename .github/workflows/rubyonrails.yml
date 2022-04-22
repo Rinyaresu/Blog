@@ -39,6 +39,8 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
       # Add or replace test runners here
+      - name: Chmod bin/rake
+        run: chmod u+x bin/rake
       - name: Run tests
         run: bin/rake
 
