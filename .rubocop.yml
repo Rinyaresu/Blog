@@ -5,6 +5,7 @@ require:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-minitest
 
 AllCops:
   TargetRubyVersion: 3.1.1
