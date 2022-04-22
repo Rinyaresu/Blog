@@ -75,5 +75,7 @@ class ArticlesController < ApplicationController
 end
 
 def move_to_signed_in
-  redirect_to "/users/sign_in" unless user_signed_in?
+  unless user_signed_in?
+    redirect_to "/users/sign_in", alert: "You need to sign in or sign up before continuing."
+  end
 end
