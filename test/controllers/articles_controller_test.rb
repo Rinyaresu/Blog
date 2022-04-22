@@ -14,8 +14,9 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     end
 
   test "should get new" do
+    sign_in users(:one)
     get new_article_url
-    assert_response :found
+    assert_response :success
   end
 
   test "should create article" do
