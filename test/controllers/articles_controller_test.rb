@@ -44,6 +44,8 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     patch article_url(@article),
       params: { article: { content: @article.content, title: @article.title } }
     assert_redirected_to article_url(@article)
+    @article.reload
+    assert_equal @article.title, "MyString"
   end
 
   test "should destroy article" do
@@ -87,5 +89,37 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to "/users/sign_in"
+  end
+
+  # test routes
+  test "should route to index" do
+    assert_routing "/main/index", controller: "main", action: "index"
+  end
+
+  test "should route to new" do
+    assert_routing "/articles/new", controller: "articles", action: "new"
+  end
+
+  test "should route to show" do
+    assert_routing "/articles/1", controller: "articles", action: "show", id: "1"
+  end
+
+  test "should route to edit" do
+    assert_routing "/articles/1/edit", controller: "articles", action: "edit", id: "1"
+  end
+
+  test "should route to create" do
+    assert_routing({ method: "post", path: "/articles" },
+      controller: "articles", action: "create")
+  end
+
+  test "should route to update" do
+    assert_routing({ method: "patch", path: "/articles/1" },
+      controller: "articles", action: "update", id: "1")
+  end
+
+  test "should route to destroy" do
+    assert_routing({ method: "delete", path: "/articles/1" },
+      controller: "articles", action: "destroy", id: "1")
   end
 end
