@@ -86,4 +86,10 @@ class ArticlesTest < ApplicationSystemTestCase
     visit edit_article_path(@article)
     assert_text "You need to sign in or sign up before continuing."
   end
+
+  test "should have a button to about page" do
+    visit main_index_path
+    click_on "About"
+    assert_text "About"
+  end
 end
