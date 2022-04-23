@@ -39,4 +39,16 @@ class ArticleTest < ActiveSupport::TestCase
     article = articles(:one)
     assert_equal "In a million stars!", article.content.to_plain_text
   end
+
+  # test broadcast on show
+  test "should broadcast on show" do
+    article = articles(:one)
+    assert_difference(
+      ActionCable.server.broadcast("articles",
+                                                    { action: "show", id: article.id,
+                                                      title: article.title, content: article.content
+                                                    })) do
+      article.save
+    end
+  end
 end
