@@ -92,4 +92,30 @@ class ArticlesTest < ApplicationSystemTestCase
     click_on "About"
     assert_text "About"
   end
+
+  test "should have a button to main page" do
+    visit about_index_path
+    click_on "Kaique's Blog"
+    assert_text "Recent"
+  end
+
+  test "should have linkedin button" do
+    visit about_index_path
+    assert_selector "a[href='https://www.linkedin.com/in/kaique-linhares-25a840208/']"
+  end
+
+  test "should have github button" do
+    visit about_index_path
+    assert_selector "a[href='https://github.com/rinyaresu']"
+  end
+
+  test "should have twitter button" do
+    visit about_index_path
+    assert_selector "a[href='https://twitter.com/rinyaresu']"
+  end
+
+  test "should have email button" do
+    visit about_index_path
+    assert_selector "a[href='mailto:kaiquelinhares07@gmail.com']"
+  end
 end
