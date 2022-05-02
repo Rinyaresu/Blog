@@ -10,6 +10,7 @@ html {
 body {
   color: #fff; 
   -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto', sans-serif;
 }
 
 .navbar-nav {
@@ -46,13 +47,13 @@ input{
 
 .about {
   padding-right: 1.5rem !important;
-  padding-left: 2.0rem !important;
+  padding-left: 2.3rem !important;
 }
 
 .icons {
-    margin-right: 1.5rem !important;
-    margin-left: 2.5rem !important;
-    margin-bottom: 370px;
+  margin-right: 1.5rem !important;
+  margin-left: 2.8rem !important;
+  margin-bottom: 370px;
 }
 
 .about-text {
@@ -62,4 +63,9 @@ input{
 .fab fa-github, .fab fa-linkedin, .fab fa-twitter {
   height: 50px;
   width: 50px ;
+}
+
+.name {
+  padding-right: 3rem !important;
+  padding-left: 3.4rem !important;
 }
