@@ -74,7 +74,7 @@ group :development do
   gem "rubocop-minitest", require: false
   gem "rubocop-rspec", require: false
   gem "tty-spinner"
-  gem 'solargraph'
+  gem "solargraph"
 end
 
 group :test do
@@ -82,7 +82,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem 'minitest'
+  gem "minitest"
 end
 
 # Flexible authentication solution for Rails with Warden
@@ -92,4 +92,4 @@ gem "devise", "~> 4.8"
 gem "friendly_id", "~> 5.4.0"
 
 # New Relic is a performance management system, developed by New Relic, Inc (http://www.newrelic.com). New Relic provides you with deep information about the performance of your web application as it runs in production.
-gem 'newrelic_rpm'
+gem "newrelic_rpm"
