@@ -101,6 +101,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    docile (1.4.0)
     e2mmap (0.1.0)
     erubi (1.10.0)
     ffi (1.15.5)
@@ -238,6 +239,12 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     solargraph (0.44.3)
       backport (~> 1.2)
       benchmark
@@ -322,6 +329,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   selenium-webdriver
+  simplecov
   solargraph
   sprockets-rails
   stimulus-rails
