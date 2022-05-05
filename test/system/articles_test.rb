@@ -31,6 +31,7 @@ class ArticlesTest < ApplicationSystemTestCase
     click_on "Edit this article", match: :first
 
     fill_in "Title", with: @article.title
+    fill_in_rich_text_area "Content", with: @article.content
     click_on "Update Article"
 
     assert_text "Article was successfully updated"
