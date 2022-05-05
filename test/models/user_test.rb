@@ -10,10 +10,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "user should have a unique username" do
-    user = User.new(username: "test", email: "test@test.com", password: "password")
+    user =
+      User.new(username: "test", email: "test@test.com", password: "password")
     assert user.valid?
     user.save
-    user2 = User.new(username: "test", email: "test2@test.com", password: "password")
+    user2 =
+      User.new(username: "test", email: "test2@test.com", password: "password")
     assert_not user2.valid?
   end
 
@@ -30,15 +32,23 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "user should have a password with at least 6 characters" do
-    user = User.new(username: "test", email: "teste@teste.com", password: "pass")
+    user =
+      User.new(username: "test", email: "teste@teste.com", password: "pass")
     assert_not user.valid?
-    assert_equal ["is too short (minimum is 6 characters)"], user.errors[:password]
+    assert_equal ["is too short (minimum is 6 characters)"],
+                 user.errors[:password]
   end
 
   test "user should have a unique email" do
-    user = User.new(username: "test", email: "teste@teste.com", password: "password")
+    user =
+      User.new(username: "test", email: "teste@teste.com", password: "password")
     user.save
-    user2 = User.new(username: "test2", email: "teste@teste.com", password: "password")
+    user2 =
+      User.new(
+        username: "test2",
+        email: "teste@teste.com",
+        password: "password"
+      )
     assert_not user2.valid?
   end
 

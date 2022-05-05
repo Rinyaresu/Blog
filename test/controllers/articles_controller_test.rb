@@ -4,16 +4,14 @@ require "test_helper"
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
-  setup do
-    @article = articles(:one)
-  end
+  setup { @article = articles(:one) }
 
   # have to be logged in
 
   test "should get index" do
-      get main_index_url
-      assert_response :success
-    end
+    get main_index_url
+    assert_response :success
+  end
 
   test "should get new" do
     sign_in users(:one)
@@ -24,7 +22,13 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   test "should create article" do
     sign_in users(:one)
     assert_difference("Article.count") do
-      post articles_url, params: { article: { content: @article.content, title: @article.title } }
+      post articles_url,
+           params: {
+             article: {
+               content: @article.content,
+               title: @article.title
+             }
+           }
     end
 
     assert_redirected_to article_url(Article.last)
@@ -44,7 +48,12 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   test "should update article" do
     sign_in users(:one)
     patch article_url(@article),
-      params: { article: { content: @article.content, title: @article.title } }
+          params: {
+            article: {
+              content: @article.content,
+              title: @article.title
+            }
+          }
     assert_redirected_to article_url(@article)
     @article.reload
     assert_equal @article.title, "MyString"
@@ -52,9 +61,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy article" do
     sign_in users(:one)
-    assert_difference("Article.count", -1) do
-      delete article_url(@article)
-    end
+    assert_difference("Article.count", -1) { delete article_url(@article) }
 
     assert_redirected_to root_url
   end
@@ -73,7 +80,13 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should not create article" do
     assert_difference("Article.count", 0) do
-      post articles_url, params: { article: { content: @article.content, title: @article.title } }
+      post articles_url,
+           params: {
+             article: {
+               content: @article.content,
+               title: @article.title
+             }
+           }
     end
 
     assert_redirected_to "/users/sign_in"
@@ -81,14 +94,17 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should not update article" do
     patch article_url(@article),
-      params: { article: { content: @article.content, title: @article.title } }
+          params: {
+            article: {
+              content: @article.content,
+              title: @article.title
+            }
+          }
     assert_redirected_to "/users/sign_in"
   end
 
   test "should not destroy article" do
-    assert_difference("Article.count", 0) do
-      delete article_url(@article)
-    end
+    assert_difference("Article.count", 0) { delete article_url(@article) }
 
     assert_redirected_to "/users/sign_in"
   end
@@ -103,25 +119,42 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should route to show" do
-    assert_routing "/articles/1", controller: "articles", action: "show", id: "1"
+    assert_routing "/articles/1",
+                   controller: "articles",
+                   action: "show",
+                   id: "1"
   end
 
   test "should route to edit" do
-    assert_routing "/articles/1/edit", controller: "articles", action: "edit", id: "1"
+    assert_routing "/articles/1/edit",
+                   controller: "articles",
+                   action: "edit",
+                   id: "1"
   end
 
   test "should route to create" do
-    assert_routing({ method: "post", path: "/articles" },
-      controller: "articles", action: "create")
+    assert_routing(
+      { method: "post", path: "/articles" },
+      controller: "articles",
+      action: "create"
+    )
   end
 
   test "should route to update" do
-    assert_routing({ method: "patch", path: "/articles/1" },
-      controller: "articles", action: "update", id: "1")
+    assert_routing(
+      { method: "patch", path: "/articles/1" },
+      controller: "articles",
+      action: "update",
+      id: "1"
+    )
   end
 
   test "should route to destroy" do
-    assert_routing({ method: "delete", path: "/articles/1" },
-      controller: "articles", action: "destroy", id: "1")
+    assert_routing(
+      { method: "delete", path: "/articles/1" },
+      controller: "articles",
+      action: "destroy",
+      id: "1"
+    )
   end
 end

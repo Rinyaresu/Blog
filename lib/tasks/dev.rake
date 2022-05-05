@@ -1,15 +1,17 @@
 namespace :dev do
-  DEFAULT_PASSWORD = 123456
+  DEFAULT_PASSWORD = 123_456
 
   desc "set development environment"
   task setup: :environment do
     if Rails.env.development?
-      show_spinner("Deleting BD...") { %x(rails db:drop) }
-      show_spinner("Creating BD...") { %x(rails db:create) }
-      show_spinner("Migrating BD...") { %x(rails db:migrate) }
-      show_spinner("Registering default user...") { %x(rails dev:add_default_user) }
+      show_spinner("Deleting BD...") { `rails db:drop` }
+      show_spinner("Creating BD...") { `rails db:create` }
+      show_spinner("Migrating BD...") { `rails db:migrate` }
+      show_spinner("Registering default user...") do
+        `rails dev:add_default_user`
+      end
     else
-      puts %x'You are not in development environment'
+      puts `You are not in development environment`
     end
   end
 
@@ -24,10 +26,11 @@ namespace :dev do
   end
 
   private
-    def show_spinner(msg_start, msg_end = "Completed!")
-      spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
-      spinner.auto_spin
-      yield
-      spinner.success("(#{msg_end})")
-    end
+
+  def show_spinner(msg_start, msg_end = "Completed!")
+    spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
+    spinner.auto_spin
+    yield
+    spinner.success("(#{msg_end})")
+  end
 end

@@ -4,28 +4,33 @@ require "test_helper"
 
 class ArticleTest < ActiveSupport::TestCase
   test "should have a title and content" do
-      article = Article.new
-      assert_not article.valid?
-      assert_equal ["can't be blank"], article.errors[:title]
-      assert_equal ["can't be blank"], article.errors[:content]
-    end
+    article = Article.new
+    assert_not article.valid?
+    assert_equal ["can't be blank"], article.errors[:title]
+    assert_equal ["can't be blank"], article.errors[:content]
+  end
 
   test "should have a title and max length of 255" do
     article = Article.new(title: "a" * 256)
     assert_not article.valid?
-    assert_equal ["is too long (maximum is 255 characters)"], article.errors[:title]
+    assert_equal ["is too long (maximum is 255 characters)"],
+                 article.errors[:title]
   end
 
   # shold broadcast update after update commit
   test "should broadcast update after update commit" do
     article = articles(:one)
     assert_difference(
-      ActionCable.server.broadcast("articles",
-                                                    { action: "update", id: article.id,
-                                                      title: article.title, content: article.content
-                                                    })) do
-      article.update(title: "new title", content: "new content")
-    end
+      ActionCable.server.broadcast(
+        "articles",
+        {
+          action: "update",
+          id: article.id,
+          title: article.title,
+          content: article.content
+        }
+      )
+    ) { article.update(title: "new title", content: "new content") }
   end
 
   # should slug title
@@ -44,11 +49,15 @@ class ArticleTest < ActiveSupport::TestCase
   test "should broadcast on show" do
     article = articles(:one)
     assert_difference(
-      ActionCable.server.broadcast("articles",
-                                                    { action: "show", id: article.id,
-                                                      title: article.title, content: article.content
-                                                    })) do
-      article.save
-    end
+      ActionCable.server.broadcast(
+        "articles",
+        {
+          action: "show",
+          id: article.id,
+          title: article.title,
+          content: article.content
+        }
+      )
+    ) { article.save }
   end
 end

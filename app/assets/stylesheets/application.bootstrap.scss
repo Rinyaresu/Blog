@@ -1,16 +1,15 @@
-@import 'actiontext.css';
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-
+@import "actiontext.css";
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
 
 html {
   background-color: #212529;
 }
 
 body {
-  color: #fff; 
+  color: #fff;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .navbar-nav {
@@ -21,7 +20,10 @@ body {
   align-items: center;
 }
 
-.container-lg, .container-md, .container-sm, .container {
+.container-lg,
+.container-md,
+.container-sm,
+.container {
   max-width: 960px;
 }
 
@@ -30,7 +32,7 @@ a {
   text-decoration: none;
 }
 
-input{
+input {
   background-color: #212529;
   color: white;
 }
@@ -57,12 +59,14 @@ input{
 }
 
 .about-text {
-  padding-top: 2.0rem !important;
+  padding-top: 2rem !important;
 }
 
-.fab fa-github, .fab fa-linkedin, .fab fa-twitter {
+.fab fa-github,
+.fab fa-linkedin,
+.fab fa-twitter {
   height: 50px;
-  width: 50px ;
+  width: 50px;
 }
 
 .name {

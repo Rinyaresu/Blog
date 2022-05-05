@@ -10,7 +10,13 @@ class BlogFlowTest < ActionDispatch::IntegrationTest
     get new_article_path
     assert_response :success
     assert_difference "Article.count", 1 do
-      post articles_path, params: { article: { title: "Test Title", content: "Test Body" } }
+      post articles_path,
+           params: {
+             article: {
+               title: "Test Title",
+               content: "Test Body"
+             }
+           }
     end
     assert_response :redirect
     follow_redirect!
@@ -23,7 +29,12 @@ class BlogFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_difference "Article.count", 0 do
       patch article_path(articles(:one)),
-params: { article: { title: "Test Title", content: "Test Body" } }
+            params: {
+              article: {
+                title: "Test Title",
+                content: "Test Body"
+              }
+            }
     end
     assert_response :redirect
     follow_redirect!
@@ -44,14 +55,16 @@ params: { article: { title: "Test Title", content: "Test Body" } }
     get new_article_path
     assert_response :redirect
     follow_redirect!
-    assert_match "You need to sign in or sign up before continuing.", response.body
+    assert_match "You need to sign in or sign up before continuing.",
+                 response.body
   end
 
   test "can not edit an article until logged in" do
     get edit_article_path(articles(:one))
     assert_response :redirect
     follow_redirect!
-    assert_match "You need to sign in or sign up before continuing.", response.body
+    assert_match "You need to sign in or sign up before continuing.",
+                 response.body
   end
 
   test "can not destroy an article until logged in" do
@@ -60,6 +73,7 @@ params: { article: { title: "Test Title", content: "Test Body" } }
     end
     assert_response :redirect
     follow_redirect!
-    assert_match "You need to sign in or sign up before continuing.", response.body
+    assert_match "You need to sign in or sign up before continuing.",
+                 response.body
   end
 end

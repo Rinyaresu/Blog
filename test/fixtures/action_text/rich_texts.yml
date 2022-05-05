@@ -4,7 +4,6 @@
 #   body: <p>In a <i>million</i> stars!</p>
 
 one:
-    record: one (Article)
-    name: content
-    body: <p>In a <i>million</i> stars!</p>
-    
+  record: one (Article)
+  name: content
+  body: <p>In a <i>million</i> stars!</p>

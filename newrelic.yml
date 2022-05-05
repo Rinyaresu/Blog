@@ -10,8 +10,8 @@
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
-common: &default_settings
-  # Required license key associated with your New Relic account.
+common:
+  &default_settings # Required license key associated with your New Relic account.
   license_key: 0f7bb468624cfceb8e3f5f745e6f09064583NRAL
 
   # Your application name. Renaming here affects where data displays in New
