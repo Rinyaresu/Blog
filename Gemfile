@@ -97,4 +97,8 @@ gem "newrelic_rpm"
 # SimpleCov is a code coverage analysis tool for Ruby.
 gem "simplecov", require: false, group: :test
 
+# prettier plugin for the Ruby programming language
 gem "prettier"
+
+# Death to haphazard monkey-patching! Extend Minitest through simple hooks.
+gem "minitest-reporters", "~> 1.5"

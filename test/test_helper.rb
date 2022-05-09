@@ -4,7 +4,9 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 require "simplecov"
+require "minitest/reporters"
 SimpleCov.start "rails"
+Minitest::Reporters.use!
 Rails.application.eager_load!
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers

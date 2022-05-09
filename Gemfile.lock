@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ansi (1.5.0)
     ast (2.4.2)
     backport (1.2.0)
     bcrypt (3.1.17)
@@ -141,6 +142,11 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
+    minitest-reporters (1.5.0)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     msgpack (1.5.1)
     net-imap (0.2.3)
       digest
@@ -333,6 +339,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   minitest
+  minitest-reporters (~> 1.5)
   newrelic_rpm
   pg (~> 1.1)
   prettier
