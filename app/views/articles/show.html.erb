@@ -3,7 +3,7 @@
   <%= render @article %>
 </div>
 <div class="container">
-  <% if user_signed_in?%>
+  <% if user_signed_in? %>
     <div class="row">
       <div class="col">
         <%= link_to "Back to articles", root_path, class:"btn btn-outline-info" %>
