@@ -24,6 +24,20 @@ jobs:
       matrix:
         ruby-version: ['3.1']
 
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_DB: rails_github_actions_test
+          POSTGRES_USER: rails_github_actions
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up Ruby
@@ -35,4 +49,13 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
-      run: bundle exec rails test:all
+      env:
+        RAILS_ENV: test
+        PGHOST: localhost
+        POSTGRES_DB: rails_github_actions_test
+        POSTGRES_USER: rails_github_actions
+        POSTGRES_PASSWORD: postgres
+      run: |
+        cp config/database.ci.yml config/database.yml
+        bundle exec rails test:all
+        
