@@ -11,6 +11,8 @@ class ArticlesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Recent"
   end
 
+  # Have to be logged in
+
   test "should create article" do
     sign_in users(:one)
     visit main_index_path
@@ -45,6 +47,8 @@ class ArticlesTest < ApplicationSystemTestCase
     page.driver.browser.switch_to.alert.accept
     assert_text "Article was successfully destroyed"
   end
+
+  # If not logged in
 
   test "should not create article without title" do
     sign_in users(:one)

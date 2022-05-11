@@ -6,7 +6,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   setup { @article = articles(:one) }
 
-  # have to be logged in
+  # Have to be logged in
 
   test "should get index" do
     get main_index_url
@@ -109,7 +109,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to "/users/sign_in"
   end
 
-  # test routes
   test "should route to index" do
     assert_routing "/main/index", controller: "main", action: "index"
   end

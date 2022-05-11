@@ -5,6 +5,8 @@ require "test_helper"
 class BlogFlowTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
+  # Have to be logged in
+
   test "can create an article" do
     sign_in users(:one)
     get new_article_path
@@ -50,6 +52,20 @@ class BlogFlowTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_match "Article was successfully destroyed", response.body
   end
+
+  test "can show an article" do
+    get article_path(articles(:one))
+    assert_response :success
+    assert_match "MyString", response.body
+  end
+
+  test "can enter about page" do
+    get about_index_path
+    assert_response :success
+    assert_match "About", response.body
+  end
+
+  # If not logged in
 
   test "can not create an article until logged in" do
     get new_article_path

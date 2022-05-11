@@ -17,7 +17,6 @@ class ArticleTest < ActiveSupport::TestCase
                  article.errors[:title]
   end
 
-  # shold broadcast update after update commit
   test "should broadcast update after update commit" do
     article = articles(:one)
     assert_difference(
@@ -33,19 +32,16 @@ class ArticleTest < ActiveSupport::TestCase
     ) { article.update(title: "new title", content: "new content") }
   end
 
-  # should slug title
   test "should slug title" do
     article = articles(:one)
     assert_equal "MyString", article.slug
   end
 
-  # should have rich text content
   test "should have rich text content" do
     article = articles(:one)
     assert_equal "In a million stars!", article.content.to_plain_text
   end
 
-  # test broadcast on show
   test "should broadcast on show" do
     article = articles(:one)
     assert_difference(
