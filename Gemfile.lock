@@ -211,7 +211,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    rbs (2.4.0)
+    rbs (2.5.0)
     redis (4.6.0)
     regexp_parser (2.4.0)
     reline (0.3.1)
@@ -346,6 +346,7 @@ DEPENDENCIES
   minitest
   minitest-reporters (~> 1.5)
   newrelic_rpm
+  nokogiri (>= 1.13.6)
   pg (~> 1.1)
   prettier
   puma (~> 5.0)
