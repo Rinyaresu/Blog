@@ -102,3 +102,5 @@ gem "prettier"
 
 # Death to haphazard monkey-patching! Extend Minitest through simple hooks.
 gem "minitest-reporters", "~> 1.5"
+
+gem "nokogiri", ">= 1.13.6"
