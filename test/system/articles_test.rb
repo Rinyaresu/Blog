@@ -16,7 +16,6 @@ class ArticlesTest < ApplicationSystemTestCase
   test "should create article" do
     sign_in users(:one)
     visit main_index_path
-    click_on(class: "navbar-toggler")
     click_on "New article"
 
     fill_in "Title", with: @article.title
@@ -93,7 +92,6 @@ class ArticlesTest < ApplicationSystemTestCase
 
   test "should have a button to about page" do
     visit main_index_path
-    click_on(class: "navbar-toggler")
     click_on "About"
     assert_text "About"
   end
