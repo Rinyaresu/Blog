@@ -104,3 +104,5 @@ gem "prettier"
 gem "minitest-reporters", "~> 1.5"
 
 gem "nokogiri", ">= 1.13.6"
+
+gem "rack", ">= 2.2.3.1"
