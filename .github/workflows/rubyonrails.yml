@@ -26,8 +26,14 @@ jobs:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Setup Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
 
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
@@ -40,8 +46,5 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
 
-      - name: Precompile css
-        run: bundle exec rails assets:precompile
-
       - name: Run tests
-        run: bin/rails test
+        run: bin/rails test:all
